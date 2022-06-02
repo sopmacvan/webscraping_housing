@@ -14,10 +14,10 @@ with open('housing.csv', 'w', encoding='utf8', newline='') as f:
     thewriter.writerow(header)
 
     for list in lists:
-        title = list.find('a', class_="listing-search-item__link--title").text.replace('\n', '')
-        location = list.find('div', class_="listing-search-item__location").text.replace('\n', '')
-        price = list.find('div', class_="listing-search-item__price").text.replace('\n', '')
-        area = list.find('li', class_="illustrated-features__item--surface-area").text.replace('\n', '')
+        title = list.find('a', class_="listing-search-item__link--title").text.strip()
+        location = list.find('div', class_="listing-search-item__location").text.strip()
+        price = list.find('div', class_="listing-search-item__price").text.strip()
+        area = list.find('li', class_="illustrated-features__item--surface-area").text.strip()
         
         info = [title, location, price, area]
         thewriter.writerow(info)
